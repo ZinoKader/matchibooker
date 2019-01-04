@@ -1,0 +1,16 @@
+<!doctype html>
+<title>Booking</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='booking.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+
+<div class="centeredsection">
+    <h1 class="title">Booking</h1>
+
+    <select>
+    {% for slot in booking_slots %}
+        <option value="{{ slot.booking_url }}">{{ slot.start_time }} {{ slot.end_time }}</option>
+    {% endfor %}
+    </select>
+
+</div>
+

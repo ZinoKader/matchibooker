@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Matchibooker</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='login.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+
+<div class="centeredsection">
+    <h1 class="title">Matchibooker</h1>
+    <h2>Logga in</h2>
+    <form action="{{ url_for('booking') }}" method="post">
+        <span>Username</span>
+        <br>
+        <input type="text" name="username">
+        <br><br>
+        <span>Password</span>
+        <br>
+        <input type="password" name="password">
+        <br><br>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
