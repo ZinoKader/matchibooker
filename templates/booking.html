@@ -6,11 +6,14 @@
 <div class="centeredsection">
     <h1 class="title">Booking</h1>
 
-    <select>
+    <li>
     {% for slot in booking_slots %}
-        <option value="{{ slot.booking_url }}">{{ slot.start_time }} {{ slot.end_time }}</option>
+        <span>
+            <p>Time slot: {{ slot.start_time }} - {{ slot.end_time }}</p>
+            <a href="{{ slot.booking_url }}">Book!</a>
+        </span>
     {% endfor %}
-    </select>
+    </li>
 
 </div>
 
