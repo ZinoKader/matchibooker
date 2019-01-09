@@ -9,11 +9,11 @@
     <ul class="booking_slot_list">
     {% for slot in booking_slots %}
         <li>
-            <h4>Time slot</h4>
+            <p>-------------------------</p>
             <p><b>{{ slot.date }}</b></p>
             <p>{{ slot.start_time }} - {{ slot.end_time }}</p>
             <label>
-                <input type="checkbox"> - select time slot
+                <input type="checkbox" value="{{ slot.booking_url }}"> - select time slot
             </label>
         </li>
     {% endfor %}

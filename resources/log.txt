@@ -1,0 +1,11 @@
+2019-01-09 - 22:18 - Added slot with date 2019-01-09 and time 12:00 - 13:00
+2019-01-09 - 22:18 - Removed slot with date 2019-01-09 and time 12:00
+2019-01-09 - 22:19 - Added slot with date 2019-01-09 and time 12:00 - 13:00
+2019-01-09 - 22:19 - Added slot with date 2019-01-09 and time 23:00 - 00:00
+2019-01-09 - 22:19 - Added slot with date 2019-01-10 and time 12:00 - 13:00
+2019-01-09 - 22:19 - Removed slot with date 2019-01-09 and time 12:00
+2019-01-09 - 22:20 - Added slot with date 2019-01-09 and time 12:00 - 13:00
+2019-01-09 - 22:20 - Added slot with date 2019-01-09 and time 22:18 - 00:00
+2019-01-09 - 22:20 - Added slot with date 2019-01-10 and time 12:00 - 13:00
+2019-01-09 - 22:20 - Removed slot with date 2019-01-09 and time 12:00
+2019-01-09 - 22:20 - Removed slot with date 2019-01-09 and time 22:18
