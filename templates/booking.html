@@ -6,18 +6,22 @@
 <div class="centeredsection">
     <h1 class="title">Booking</h1>
 
-    <ul class="booking_slot_list">
-    {% for slot in booking_slots %}
-        <li>
-            <p>-------------------------</p>
-            <p><b>{{ slot.date }}</b></p>
-            <p>{{ slot.start_time }} - {{ slot.end_time }}</p>
-            <label>
-                <input type="checkbox" value="{{ slot.booking_url }}"> - select time slot
-            </label>
-        </li>
-    {% endfor %}
-    </ul>
+    <form action="{{ url_for('book') }}" method="post">
+        <input type="submit" value="Book!">
+        <ul class="booking_slot_list">
+        {% for slot in booking_slots %}
+            <li>
+                <p>-------------------------</p>
+                <p><b>{{ slot.date }}</b></p>
+                <p>{{ slot.start_time }} - {{ slot.end_time }}</p>
+                <label>
+                    <input type="checkbox" name="slot_checkbox" value="['{{ slot.booking_url }}', '{{ slot.date }}', '{{ slot.start_time }}', '{{ slot.end_time }}']">
+                    <label style="font-size: 10px" for="slot_checkbox">Select time slot</label>
+                </label>
+            </li>
+        {% endfor %}
+        </ul>
+    </form>
 
 </div>
 

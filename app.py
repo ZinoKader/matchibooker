@@ -1,6 +1,7 @@
 from flask import *
 from booking import *
 import mechanicalsoup
+import ast
 
 app = Flask(__name__)
 
@@ -41,6 +42,18 @@ def booking():
     return render_template("booking.html", booking_slots=booking_slots)
 
 
+@app.route("/booked", methods=["POST"])
+def book():
+    slots = request.form.getlist("slot_checkbox")
+    slots_parsed = []
+    for slot in slots:
+        slot = ast.literal_eval(slot)  # convert string representation of list to python list
+        slot_parsed = TimeSlot(slot[0])
+        slots_parsed.append(slot_parsed)
+        add_entry(slot[0], slot[1], slot[2], slot[3])
+    return render_template("booked.html", booked_slots=slots_parsed)
+
+
 def get_booking_slots():
     days_to_get = []
     for day_offset in range(0, 5):
@@ -57,14 +70,6 @@ def get_booking_slots():
             booking_slots.append(timeslot)
 
     return booking_slots
-
-
-@app.route("/book")
-def book():
-    booking_page = request.form["booking_page"]
-    browser.open(booking_page)
-    booking_page = browser.get_current_page()
-    return booking_page.prettify()
 
 
 if __name__ == '__main__':

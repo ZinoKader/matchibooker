@@ -1,0 +1,21 @@
+<!doctype html>
+<title>Booked!</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='booking.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+
+<div class="centeredsection">
+    <h1 class="title">Queued bookings successfully!</h1>
+    <h2>These slots have been put up in the queue for booking</h2>
+
+    <ul class="booking_slot_list">
+    {% for slot in booked_slots %}
+        <li>
+            <p>-------------------------</p>
+            <p style="color:lawngreen"><b>{{ slot.date }}</b></p>
+            <p style="color:lawngreen">{{ slot.start_time }} - {{ slot.end_time }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+
+</div>
+
