@@ -1,5 +1,7 @@
-2019-01-10 - 14:26 - Added slot with date 2019-01-10 and time 14:00 - 15:00
-2019-01-10 - 14:26 - Added slot with date 2019-01-10 and time 15:00 - 16:00
-2019-01-10 - 14:26 - Added slot with date 2019-01-10 and time 21:00 - 22:00
-2019-01-10 - 14:26 - Added slot with date 2019-01-11 and time 05:00 - 06:00
-2019-01-10 - 14:26 - Added slot with date 2019-01-12 and time 08:00 - 09:00
+2019-01-11 - 22:53 - Added slot with date 2019-01-12 and time 07:00 - 08:00
+Booked slot with url https://www.matchi.se/bookingPayment/preConfirm?slotIds=edca8f7c67826cb40167845152c956bb&facilityId=55&start=1547272800000&end=1547276400000&sportIds=1&indoor=true&controllerName=book
+2019-01-11 - 23:12 - Added slot with date 2019-01-13 and time 11:00 - 12:00
+2019-01-11 - 23:12 - Added slot with date 2019-01-13 and time 12:00 - 13:00
+2019-01-11 - 23:17 - Added slot with date 2019-01-12 and time 06:00 - 07:00
+2019-01-11 - 23:17 - Added slot with date 2019-01-12 and time 07:00 - 08:00
+Booked slot with url https://www.matchi.se/bookingPayment/preConfirm?slotIds=edca8f7c67826cb40167845152c356ba&facilityId=55&start=1547269200000&end=1547272800000&sportIds=1&indoor=true&controllerName=book

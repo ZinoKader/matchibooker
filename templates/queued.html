@@ -8,7 +8,7 @@
     <h2>These slots have been put up in the queue for booking</h2>
 
     <ul class="booking_slot_list">
-    {% for slot in booked_slots %}
+    {% for slot in queued_slots %}
         <li>
             <p>-------------------------</p>
             <p style="color:lawngreen"><b>{{ slot.date }}</b></p>
