@@ -7,8 +7,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 bookingqueue_path = "resources/bookingqueue.json"
 scheduler = BackgroundScheduler()
-purging_interval_minutes = 0.1
-booking_interval_minutes = 0.1
+purging_interval_minutes = 1
+booking_interval_minutes = 1
 
 
 class QueueWorker:
@@ -48,8 +48,7 @@ def stop_worker():
 
 
 if __name__ == '__main__':
-    username = "zinokad@gmail.com"
-    print("Username : " + username)
+    username = input("Please enter your username: ")
     password = input("Please enter your password: ")
     queueWorker = QueueWorker(username, password)
 

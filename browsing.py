@@ -19,8 +19,7 @@ class Browser:
     def matchi_login(self, username, password):
         # login
         self.browser.open("https://www.matchi.se/login/auth")
-        if "id=\"loginForm\"" not in self.browser.get_current_page().prettify():
-            print("Already logged in... did not refresh session")
+        if "id=\"loginForm\"" not in self.browser.get_current_page().prettify():  # already logged in, no need to login
             return
         self.browser.select_form('#loginForm')
         self.browser["j_username"] = username
@@ -42,26 +41,28 @@ class Browser:
 
     def book_slot(self, slot):
         booking_status = False
-        self.browser.set_verbose(2)
+
         self.browser.open(slot)
-        if not self.browser.get_current_page().find("form", id="confirmForm"):
+        booking_page = self.browser.get_current_page()
+
+        if not booking_page.find("form", id="confirmForm"):
             return False
         booking_page = self.browser.get_current_page()
 
         # get booking payload values
-        player_email = booking_page.find("input", {"name": "playerEmail"}).get("value")
-        coupon_id = booking_page.find("option").get("value")
-        order_id = booking_page.find("input", {"name": "orderId"}).get("value")
-        facility_id = booking_page.find("input", {"name": "facilityId"}).get("value")
-        start = booking_page.find("input", {"name": "start"}).get("value")
-        end = booking_page.find("input", {"name": "end"}).get("value")
-
-        booking_payload = {"orderId": order_id, "facilityId": facility_id, "start": start, "end": end,
-                           "method": "COUPON", "customerCouponId": coupon_id, "playerEmail": player_email}
-
-        booking_response = self.browser.post(default_payment_url, headers=self.browser.session.headers, data=booking_payload)
-
-        if "Thank you for your booking!" in booking_response.text:
-            booking_status = True
+        try:
+            player_email = booking_page.find("input", {"name": "playerEmail"}).get("value")
+            coupon_id = booking_page.find("option").get("value")
+            order_id = booking_page.find("input", {"name": "orderId"}).get("value")
+            facility_id = booking_page.find("input", {"name": "facilityId"}).get("value")
+            start = booking_page.find("input", {"name": "start"}).get("value")
+            end = booking_page.find("input", {"name": "end"}).get("value")
+            booking_payload = {"orderId": order_id, "facilityId": facility_id, "start": start, "end": end,
+                               "method": "COUPON", "customerCouponId": coupon_id, "playerEmail": player_email}
+            booking_response = self.browser.post(default_payment_url,
+                                                 headers=self.browser.session.headers, data=booking_payload)
+            booking_status = True if "Thank you for your booking!" in booking_response.text else False
+        except AttributeError:  # happens when one of above can't be found on the page -> booking not possible
+            print("There's already an active booking - did not book slot")
 
         return booking_status
